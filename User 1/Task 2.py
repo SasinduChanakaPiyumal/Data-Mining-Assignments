@@ -52,12 +52,6 @@ corr_matrix = df.corr(numeric_only=True)
 print(corr_matrix)
 
 
-# In[8]:
-
-
-import pandas as pd
-import numpy as np
-
 # Compute the correlation matrix
 corr_matrix = df.corr()
 
