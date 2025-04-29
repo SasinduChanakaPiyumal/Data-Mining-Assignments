@@ -1,0 +1,258 @@
+\documentclass[a4paper,10pt]{article}\setlength{\textheight}{10in}\setlength{\textwidth}{6.5in}\setlength{\topmargin}{-0.125in}\setlength{\oddsidemargin}{-.2in}\setlength{\evensidemargin}{-.2in}\setlength{\headsep}{0.2in}\setlength{\footskip}{0pt}\usepackage{amsmath}\usepackage{fancyhdr}\usepackage{enumitem}\usepackage{hyperref}\usepackage{xcolor}\usepackage{graphicx}\usepackage[export]{adjustbox}\usepackage{caption}\usepackage{float}\usepackage{booktabs}\usepackage{makecell}\pagestyle{fancy}
+
+\lhead{Name: \rule{5cm}{0.5pt}}
+\chead{M.Number: \rule{2cm}{0.5pt}}
+\rhead{KDDM1 VO (INP.31101UF)}
+\fancyfoot{}
+
+\begin{document}
+\begin{enumerate}[topsep=0mm, partopsep=0mm, leftmargin=*]
+
+
+
+
+
+%%% Question 1
+{\color{blue}
+\item\textit{Visual Data Analysis}. Given the dataset ``task1-dataset.ods'' (available in TeachCenter), which comprises a number of features. Provide a number of meaningful visualisations (4 visualisations) that show key properties of the dataset and dependencies. Based on the visualisations provide your interpretation and insights. 
+\begin{enumerate}
+	\item What pre-processing did your do? (e.g., Did you create new features? Did you normalise the data? Did you filter the dataset? Extended with another dataset?)
+	\item What are the most relevant dependencies between the features (selection of the figures)?
+	\item Provide a series of meaningful plots that show a specific relationship (dependency) or characteristic of the dataset
+	\item Provide a summary of the main insights
+\end{enumerate}
+}
+
+%%% Your answer here
+
+\textbf{Answer (a)} - Preprocessing steps:
+    \begin{itemize}
+        \item Filter the Dataset and select appropriate features
+        \item Convert data types into the correct data types
+        \item Rename and clean columns (Made column names more readable)
+        \item Handling missing values (Dropped columns with too many missing values and removed outliers)
+        \item Create derived features
+        \item Scaled some features as needed 
+        
+    \end{itemize}
+    
+\textbf{Answer (b)} - List of main dependencies:
+    \begin{itemize}
+        \item The population by country
+        \item The reported fatalities by countries
+        \item Fatality rate by income group
+        \item Fatality distribution by road user type
+        \item Speed limits and enforcement
+    \end{itemize}
+    
+    
+\textbf{Answer (b) and (c)}
+% First visualisation
+    \begin{figure}[H]
+        \centering
+        \adjustbox{frame}{
+            \includegraphics[width=0.8\textwidth]{pop and fatalities.png}
+        }
+        \caption{Top 10 countries by population and reported fatalities - This chart illustrates the top 10 countries by population and their reported road fatalities. It provides insight into the relationship between population size and the number of fatalities, allowing for comparisons between countries. By analyzing this data, we can identify which nations are facing a higher burden of road fatalities relative to their population size and where additional measures may be necessary to improve road safety and prevent further loss of life. This comparison highlights the need for targeted interventions in countries with high fatality rates, even as their population sizes vary. }
+        \label{fig:plot1}
+    \end{figure}
+    % Second visualisation
+    \begin{figure}[H]
+        \centering
+        \adjustbox{frame}{
+            \includegraphics[width=0.8\textwidth]{AVG tatality dis by rd user type.png}
+        }
+        \caption{The Average fatality distribution by road user type}
+        \label{fig:plot2}
+    \end{figure}
+    % Third visualisation
+    \begin{figure}[H]
+        \centering
+        \adjustbox{frame}{
+            \includegraphics[width=0.8\textwidth]{Estimated pop by income.png}
+        }
+        \caption{The Estimated rate per 100000 population by Income Group}
+        \label{fig:plot3}
+    \end{figure}
+    % Fourth visualisation
+    \begin{figure}[H]
+        \centering
+        \adjustbox{frame}{
+            \includegraphics[width=0.8\textwidth]{speed limits.png}
+        }
+        \caption{The Maximum speed limits of urban and rural areas by country}
+        \label{fig:plot4}
+    \end{figure}
+
+\textbf{Answer (d)} - Short summary of the main insights (with references to the corresponding image)
+    \begin{itemize}
+        \item Finding \#1, as illustrated in Figure~\ref{fig:plot1}, the line chart illustrates that the blue line represents the population per 100,000 and the red line represents reported fatalities. China has the largest population, followed by India, the United States, Indonesia, Pakistan, Brazil, Nigeria, and Bangladesh. Although China's population is higher, India reports more fatalities, indicating an urgent need for improved road safety measures in India. Reported fatalities decrease respectively across India, China, the United States, Brazil, and Indonesia, highlighting differences in road safety outcomes among these countries.
+
+        \item Finding \#2, as illustrated in Figure~\ref{fig:plot2}, shows the average fatality distribution by road user type: powered light vehicles, pedestrians, powered two-wheelers, others, and cyclists. Fatalities are highest among powered light vehicle users, followed by pedestrians, with numbers decreasing for powered two-wheelers, others, and cyclists. This highlights the need to strengthen road safety measures, particularly for vehicle occupants and pedestrians, while continuing efforts to protect all road users.
+
+        \item Finding \#3, as illustrated in Figure~\ref{fig:plot3}, highlights a clear trend: lower-income countries experience higher and more variable fatality rates relative to their estimated populations, while higher-income countries show lower and more stable fatality rates. This pattern indicates that a country’s income level may significantly influence road safety outcomes, with wealthier nations likely benefiting from stronger infrastructure, effective safety regulations, and better healthcare systems, resulting in fewer and more consistent fatality rates.
+        
+        \item Finding \#4, as illustrated in Figure~\ref{fig:plot4} illustrates the maximum speed limits (in km/h) set by countries for urban and rural areas. In urban areas, the United States records the highest speed limit, followed by Eswatini and Qatar, which share the same limit. Next are Afghanistan, Jordan, Malaysia, Pakistan, Korea, and Armenia, all having slightly lower but identical speed limits compared to the top countries. Brazil also ranks among the top 10 countries with the highest urban speed limits.
+In rural areas, Australia has the highest maximum speed limit, followed by the United States. Namibia, Mozambique, Ecuador, Saudi Arabia, Qatar, and Jordan have similar speed limits, slightly lower than the top two. Gabon and Türkiye complete the list of the top 10 countries with the highest rural speed limits.
+This comparison highlights notable regional differences in speed regulations, which may reflect variations in infrastructure quality, road safety policies, and traffic management strategies.
+
+    \end{itemize}
+
+
+
+
+
+
+\clearpage
+{\color{blue}
+\newpage\item\textit{Correlation}. Given a dataset, which consists of 1,000 variables (hint: most of them are just random), the goal is to find the relationships between variables, i.e., which and how do the variables relate to each other; what are the dependencies.
+The dataset ``task2-dataset.csv'' can be downloaded from TeachCenter.
+\begin{enumerate}
+	\item Which methods did you apply to find the relationships, and why?
+	\item Which relationships did you find and how do you characterise the relationships (e.g., variable ``Lurkowl (Strix umbra \#1068)'' to ``Frosthawk (Accipiter glacies \#1064)'' is linear with correlation found via method X of 0.9)?
+	\item Which causal relationships between the variables can you find (e.g., variable ``Rattlepuff (Lynx rattleus \#1067)'' causes ``Slingshark (Carcharodon slingus \#1068)'')?
+\end{enumerate}
+}
+
+%%% Your answer here
+\textbf{Answer (a)} - Method and motivation:
+    \begin{enumerate}
+        \item Pearson Correlation Coefficient Method - Useful for identifying linear relationships between numerical features and easy to handle high number of variables.
+        \item Scatter Plot Method - Help to visualize correlation and indicate the nature of relationships.
+        \item Regression Analysis Method - Provides insights into the strength and direction of the relationship.
+    \end{enumerate}
+
+\textbf{Answer (b)}
+\begin{center}
+\begin{tabular}{lllll}
+\toprule
+\textbf{Variable 1} & \textbf{Variable 2} & \textbf{Type of dependency} & \textbf{Method} & \textbf{Value} \\ \midrule
+\makecell{Danglefawn \\ (Cervus dangleus #1067)} & \makecell{Puffpounce \\ (Felis floccus #196)} & Linear & Correlation & 0.999867 \\
+\makecell{Tangofox \\ (Vulpes tangus #1074)} & \makecell{Chompbeak \\ (Aquila mordus #150)} & Linear & Correlation & -0.988807 \\
+\makecell{Shivershark \\ (Carcharodon tremorensis #738)} & \makecell{Slingshark \\ (C0.993804archarodon slingus #894)} & Linear & Correlation & 0.993804 \\
+\makecell{Shivershark \\ (Carcharodon tremorensis #738)} & \makecell{Squeakfluff \\ (Sorex squeakus #1070)} & Linear & Correlation & -0.994845 \\
+\makecell{Scruffpaws \\ (Felis scruffus #1061)} & \makecell{Sparklequail \\ (Coturnix fulgor #1068)} & Linear & Correlation & 0.956447 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+
+\textbf{Answer (c)}
+    \begin{itemize}
+        \item "Danglefawn (Cervus dangleus #1067)" causes "Puffpounce  (Felis floccus #196)"\\ (Strong positive linear relationship - When "Danglefawn (Cervus dangleus #1067)" increases, "Puffpounce  (Felis floccus #196) also increases. )
+        \item "Tangofox (Vulpes tangus #1074)" causes "Chompbeak (Aquila mordus #150)"\\ (Strong negative linear relationship - When "Tangofox (Vulpes tangus #1074)" increases, "Chompbeak (Aquila mordus #150) is decreases.)
+        \item "Scruffpaws (Felis scruffus #1061)" causes "Sparklequail (Coturnix fulgor #1068)"\\ (Strong positive linear relationship - When "Scruffpaws (Felis scruffus #1061" increases, "Sparklequail (Coturnix fulgor #1068). )
+        
+    \end{itemize}
+
+
+{\color{blue}
+\clearpage\item \textit{Outliers/Anomalies}. Given two types of anomalies: (1) anomalies are defined to be \textbf{datapoints} in low-density regions, (2) anomalies are \textbf{regions} of low density.
+\begin{enumerate}
+\item For both anomalies please create/draw a dataset of 2 features (x and y axis), with 3 anomalies and many normal data points (the normal datapoints should be marked, e.g., green colour)
+\item Name the algorithms or describe the algorithmic way of how to identify this anomalous behaviour (you may also describe any necessary preprocessing)
+\item Name the assumptions made by your algorithms
+\end{enumerate}}
+
+
+
+
+\textbf{Answer (a)} - Draw two datasets % Update the images to reflect a scatterplot of a dataset
+    \begin{center}
+    \includegraphics[width=.4\textwidth]{image1.png}
+        \hspace{2cm}
+    \includegraphics[width=.4\textwidth]{image2.png}
+    \end{center}
+
+
+\textbf{Answer (b)} - Describe the algorithms 
+\begin{description}
+	\item[Dataset 1] ``Anomalies as Individual Points Method'' generated a cluster of normal data points by sampling from Gaussian (normal) distributions centered at (50, 50), producing 4997 points, and manually placed three isolated points at coordinates far from the cluster, then visualized the data by plotting normal points as green circles, point anomalies as red 'X' markers.
+	\item[Dataset 2] "Anomalies as Low-Density Regions Method" generated a cluster of normal data points by sampling from Gaussian (normal) distributions centered at (50, 50), producing 4997 points. for regional anomalies, a small cluster of three points is generated using a Gaussian distribution centered around (90, 20) with a small standard deviation (scale=2).these points are close to each other but located in a low-density region
+\end{description}
+
+
+\textbf{Answer (c)} - Describe the main assumptions \\
+\begin{center}
+\begin{tabular}{ll}
+\toprule
+\textbf{Algorithm} & \textbf{Assumption} \\ \midrule
+Anomalies as Individual Points Method & Normal data is clustered \\
+Anomalies as Individual Points Method & Gaussian distribution approximates the normal behavior\\
+Anomalies as Individual Points Method & Anomalies are far from the cluster \\ 
+Anomalies as Individual Points Method & All data points are assumed to fall within the x and y range of 0 to 100 \\
+Anomalies as Low-Density Regions Method & Anomalies are from the low-density region \\
+Anomalies as Low-Density Regions Method & No feature correlation between each point \\ 
+\bottomrule
+\end{tabular}
+\end{center}
+
+
+%%% Your answer here
+
+
+
+{\color{blue}
+\clearpage\item\textit{Missing Values}. The dataset ``task4-dataset.csv'' (available on TeachCenter) contains a number of missing values. Try to reconstruct why the missing values are missing? What could be an explanation?
+\begin{enumerate}
+	\item What are the dependencies in the dataset?
+	\item What could be reasons for the missingness?
+	\item What strategies are applicable for the features to deal with the missing values?
+	\item For each feature provide an estimate of the arithmetic mean (before and after applying the strategies to deal with missing values)?
+\end{enumerate}
+}
+
+%%% Your answer here
+\textbf{Answer (a)} - Describe the dependencies in the dataset
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+\textbf{X} & \textbf{Y} & \textbf{Type of dependency} \\ \midrule
+gender & height & Association \\
+gender & likes chocolate & Association \\
+age & semester & Positive correlation \\
+books per year & english skills & Weak positive correlation \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\textbf{Answer (b)} - Describe the reason for missingness
+\begin{center}
+\begin{tabular}{ll}
+\toprule
+\textbf{Variable} & \textbf{Reason} \\ \midrule
+height & Measurement not taken or Data entry error \\
+likes pinapple on pizza  & Skipped or unintentionally left unanswered \\
+english skills & Missing not at random or preferred not to disclose  \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\textbf{Answer (c)} - Describe the strategies for dealing with missing values
+\begin{center}
+\begin{tabular}{ll}
+\toprule
+\textbf{Variable} & \textbf{Strategy} \\ \midrule
+height & Filled with median by grouping gender wise \\
+likes pinapple on pizza  & Crated new category as unknown \\
+english skills & Filled null values with median \\
+semester & Removed the semester data where the value exceeded 40 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\textbf{Answer (d)} - Arithmetic mean of original dataset (with the missing values), and the one after applying the strategies
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+\textbf{Variable} & \textbf{Before Strategy} & \textbf{After Strategy} \\ \midrule
+english skills & 87.009721 & 87.133983 \\
+semester & 26.1560 & 10.343484 \\
+height & 172.161446 & 172.764921 \\
+
+\bottomrule
+\end{tabular}
+\end{center}
+
+\end{enumerate}
+\end{document}
