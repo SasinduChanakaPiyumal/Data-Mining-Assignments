@@ -1,0 +1,252 @@
+\documentclass[a4paper,10pt]{article}\setlength{\textheight}{10in}\setlength{\textwidth}{6.5in}\setlength{\topmargin}{-0.125in}\setlength{\oddsidemargin}{-.2in}\setlength{\evensidemargin}{-.2in}\setlength{\headsep}{0.2in}\setlength{\footskip}{0pt}\usepackage{amsmath}\usepackage{fancyhdr}\usepackage{enumitem}\usepackage{hyperref}\usepackage{xcolor}\usepackage{graphicx}\usepackage[export]{adjustbox}\usepackage{caption}\usepackage{float}\usepackage{booktabs}\usepackage{makecell}\pagestyle{fancy}
+
+\lhead{Name: Roshen Waruna Fernando}
+\chead{M.Number: \rule{2cm}{0.5pt}}
+\rhead{KDDM1 VO (INP.31101UF)}
+\fancyfoot{}
+
+\begin{document}
+\begin{enumerate}[topsep=0mm, partopsep=0mm, leftmargin=*]
+
+
+
+
+
+%%% Question 1
+{\color{blue}
+\item\textit{Visual Data Analysis}. Given the dataset ``task1-dataset.ods'' (available in TeachCenter), which comprises a number of features. Provide a number of meaningful visualisations (4 visualisations) that show key properties of the dataset and dependencies. Based on the visualisations provide your interpretation and insights. 
+\begin{enumerate}
+	\item What pre-processing did your do? (e.g., Did you create new features? Did you normalise the data? Did you filter the dataset? Extended with another dataset?)
+	\item What are the most relevant dependencies between the features (selection of the figures)?
+	\item Provide a series of meaningful plots that show a specific relationship (dependency) or characteristic of the dataset
+	\item Provide a summary of the main insights
+\end{enumerate}
+}
+
+%%% Your answer here
+
+\textbf{Answer (a)} - Preprocessing steps:
+    \begin{itemize}
+        \item Handling Missing Values (Dropped columns with too many missing values and removed outliers)
+        \item Rename and Clean Columns (Made column names more readable)
+        \item Convert Data types 
+        \item Create Derived Features
+        \item Filter the Dataset and select appropriate features
+    \end{itemize}
+    
+\textbf{Answer (b)} - List of main dependencies:
+    \begin{itemize}
+        \item The Population by countries
+        \item The Reported Fatalities by Countries
+        \item Fatality rate by Income group
+        \item Safety Laws and Fatalities
+        \item Speed Limits and Enforcement
+    \end{itemize}
+    
+    
+\textbf{Answer (b) and (c)}
+% First visualisation
+    \begin{figure}[H]
+        \centering
+        \adjustbox{frame}{
+            \includegraphics[width=0.8\textwidth]{Top 10 countries by population.png}
+        }
+        \caption{Top 10 countries by population - This bar chart is perfect for comparing population across countries and seeing how each country stacks up in terms of population size, making it easy to spot countries with the highest and lowest populations. The chart shows a dependency between the country and its population. }
+        \label{fig:plot1}
+    \end{figure}
+    % Second visualisation
+    \begin{figure}[H]
+        \centering
+        \adjustbox{frame}{
+            \includegraphics[width=0.8\textwidth]{Top 10 countries by reported fatalities.png}
+        }
+        \caption{Top 10 countries by reported fatalities.}
+        \label{fig:plot2}
+    \end{figure}
+    % Third visualisation
+    \begin{figure}[H]
+        \centering
+        \adjustbox{frame}{
+            \includegraphics[width=0.8\textwidth]{Fatality rate by income group.png}
+        }
+        \caption{Fatality rate by Income group}
+        \label{fig:plot3}
+    \end{figure}
+    % Fourth visualisation
+    \begin{figure}[H]
+        \centering
+        \adjustbox{frame}{
+            \includegraphics[width=0.8\textwidth]{Helmet law.png}
+        }
+        \caption{Helmet Law presence vs estimated Road Traffic Death Rate}
+        \label{fig:plot4}
+    \end{figure}
+
+\textbf{Answer (d)} - Short summary of the main insights (with references to the corresponding image)
+    \begin{itemize}
+        \item Finding \#1, as illustrated in Figure~\ref{fig:plot1}  illustrates the population by country, based on the dataset. China ranks highest with a population of 1.425 billion, followed closely by India at 1.408 billion. The next largest populations are as follows: the United States with 337.7 million, followed by Indonesia, Pakistan, Brazil, Nigeria, Bangladesh, the Russian Federation, and Mexico, which round out the top 10 countries by population.
+
+This chart provides valuable insights into the distribution of population across the world, highlighting the concentration of large populations in a few key countries. It also illustrates a noticeable decrease in population size as we move down the list, with the gap between China and India compared to the other countries being particularly significant.
+        \item Finding \#2, as illustrated in Figure~\ref{fig:plot2}, the top 10 countries by reported fatalities are as follows: India leads with 153,972 fatalities, followed by China at 62,218 and the USA at 42,939. The fatalities then decrease in the following order: Brazil, Indonesia, Thailand, Iran, Russian Federation, Mexico, and South Africa.
+
+India has the highest number of fatalities, which is consistent with its large population. While China also has a high population, the USA, despite a smaller population, has relatively high reported fatalities compared to other countries.
+        \item Finding \#3, as illustrated in Figure~\ref{fig:plot3}, the boxplot clearly shows that lower income countries tend to have higher and more variable fatality rates, whereas higher income countries generally have lower and more consistent fatality rates. This suggests that income levels might play a significant role in road safety, where wealthier countries may have better road safety measures and healthcare systems, leading to fewer fatalities and less variability in fatality rates.
+        
+        \item Finding \#4, as illustrated in Figure~\ref{fig:plot4}, the boxplot reveals a significant difference in road safety between countries with and without a national motorcycle helmet law. Countries that have such laws show a lower median fatality rate and less variation in fatalities, suggesting that helmet laws are effective in reducing road traffic fatalities, especially in motorcycle accidents. In contrast, countries without helmet laws experience higher and more variable fatality rates, highlighting the importance of such legislation for improving road safety.
+    \end{itemize}
+
+
+
+
+
+
+\clearpage
+{\color{blue}
+\newpage\item\textit{Correlation}. Given a dataset, which consists of 1,000 variables (hint: most of them are just random), the goal is to find the relationships between variables, i.e., which and how do the variables relate to each other; what are the dependencies.
+The dataset ``task2-dataset.csv'' can be downloaded from TeachCenter.
+\begin{enumerate}
+	\item Which methods did you apply to find the relationships, and why?
+	\item Which relationships did you find and how do you characterise the relationships (e.g., variable ``Lurkowl (Strix umbra \#1068)'' to ``Frosthawk (Accipiter glacies \#1064)'' is linear with correlation found via method X of 0.9)?
+	\item Which causal relationships between the variables can you find (e.g., variable ``Rattlepuff (Lynx rattleus \#1067)'' causes ``Slingshark (Carcharodon slingus \#1068)'')?
+\end{enumerate}
+}
+
+%%% Your answer here
+\textbf{Answer (a)} - Method and motivation:
+    \begin{enumerate}
+        \item Pearson Correlation Coefficient Method - Useful for identifying linear relationships between numerical features and easy to handle high number of variables.
+        \item Scatter Plot Method - Help to visualize correlation and indecate the nature of relationships.
+        \item Regression Analysis Method - Provides insights into the strength and direction of the relationship.
+    \end{enumerate}
+
+\textbf{Answer (b)}
+\begin{center}
+\begin{tabular}{lllll}
+\toprule
+\textbf{Variable 1} & \textbf{Variable 2} & \textbf{Type of dependency} & \textbf{Method} & \textbf{Value} \\ \midrule
+\makecell{Danglefawn \\ (Cervus dangleus #1067)} & \makecell{Puffpounce \\ (Felis floccus #196)} & Linear & Correlation & 0.999867 \\
+\makecell{Splashleopard \\ (Panthera splashus #513)} & \makecell{Shivershark \\ (Carcharodon tremorensis #824)} & Linear & Correlation & -0.999147 \\
+\makecell{Slingshark \\ (Carcharodon slingus #894)} & \makecell{Squeakfluff \\ (Sorex squeakus #1070)} & Linear & Correlation & -0.998983 \\
+\makecell{Shivershark \\ (Carcharodon tremorensis #738)} & \makecell{Squeakfluff \\ (Sorex squeakus #1070)} & Linear & Correlation & -0.994845 \\
+\makecell{Fluffernox \\ (Leontodon fluffernus #778)} & \makecell{Driftwolf \\ (Canis fluctus #1065)} & Linear & Correlation & 0.950261 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+
+\textbf{Answer (c)}
+    \begin{itemize}
+        \item "Danglefawn (Cervus dangleus #1067)" causes "Puffpounce  (Felis floccus #196)"\\ (Strong positive linear relationship - When "Danglefawn (Cervus dangleus #1067)" increases, "Puffpounce  (Felis floccus #196) also increases. )
+        \item "Splashleopard (Panthera splashus #513)" causes "Shivershark \\ (Carcharodon tremorensis #824)"\\ (Strong negative linear relationship - When "Splashleopard (Panthera splashus #513)" increases, "Shivershark \\ (Carcharodon tremorensis #824) is decreases.)
+        \item "Fluffernox (Leontodon fluffernus 778)" causes "Driftwolf (Canis fluctus 1065)"\\ (Strong positive linear relationship - When "Fluffernox (Leontodon fluffernus 778)" increases, "Driftwolf (Canis fluctus 1065) also increases. )
+        
+    \end{itemize}
+
+
+{\color{blue}
+\clearpage\item \textit{Outliers/Anomalies}. Given two types of anomalies: (1) anomalies are defined to be \textbf{datapoints} in low-density regions, (2) anomalies are \textbf{regions} of low density.
+\begin{enumerate}
+\item For both anomalies please create/draw a dataset of 2 features (x and y axis), with 3 anomalies and many normal data points (the normal datapoints should be marked, e.g., green colour)
+\item Name the algorithms or describe the algorithmic way of how to identify this anomalous behaviour (you may also describe any necessary preprocessing)
+\item Name the assumptions made by your algorithms
+\end{enumerate}}
+
+
+
+
+\textbf{Answer (a)} - Draw two datasets % Update the images to reflect a scatterplot of a dataset
+    \begin{center}
+    \includegraphics[width=.4\textwidth]{img1.png}
+        \hspace{2cm}
+    \includegraphics[width=.4\textwidth]{img2.png}
+    \end{center}
+
+
+\textbf{Answer (b)} - Describe the algorithms 
+\begin{description}
+	\item[Dataset 1] ``Anomalies as Individual Points Method'' was used and 9997 normal points were sampled from a 2D Gaussian cluster, and 3 anomalies were manually placed far from the cluster. This approach was chosen to simulate isolated, rare events, ideal for testing point-based anomaly detection methods like Isolation Forest and Local Outlier Factor.
+	\item[Dataset 2] "Anomalies as Low-Density Regions Method" was used and 9997 normal points formed a dense circular ring, leaving a low-density center where 3 anomalies were added. This setup models structural gaps in data, suitable for evaluating density-based methods like DBSCAN and cluster-based anomaly detection.
+\end{description}
+
+
+\textbf{Answer (c)} - Describe the main assumptions \\
+\begin{center}
+\begin{tabular}{ll}
+\toprule
+\textbf{Algorithm} & \textbf{Assumption} \\ \midrule
+Anomalies as Individual Points Method & Normal data is clustered \\
+Anomalies as Individual Points Method & Anomalies are far from the cluster \\ 
+Anomalies as Individual Points Method & Gaussian distribution approximates the normal behavior \\
+Anomalies as Low-Density Regions Method & Anomalies are from the low-density region \\
+Anomalies as Low-Density Regions Method & No feature correlation \\ 
+\bottomrule
+\end{tabular}
+\end{center}
+
+
+%%% Your answer here
+
+
+
+{\color{blue}
+\clearpage\item\textit{Missing Values}. The dataset ``task4-dataset.csv'' (available on TeachCenter) contains a number of missing values. Try to reconstruct why the missing values are missing? What could be an explanation?
+\begin{enumerate}
+	\item What are the dependencies in the dataset?
+	\item What could be reasons for the missingness?
+	\item What strategies are applicable for the features to deal with the missing values?
+	\item For each feature provide an estimate of the arithmetic mean (before and after applying the strategies to deal with missing values)?
+\end{enumerate}
+}
+
+%%% Your answer here
+\textbf{Answer (a)} - Describe the dependencies in the dataset
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+\textbf{X} & \textbf{Y} & \textbf{Type of dependency} \\ \midrule
+gender & height & Association \\
+age & semester & Positive correlation \\
+books per year & english skills & Weak positive correlation \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\textbf{Answer (b)} - Describe the reason for missingness
+\begin{center}
+\begin{tabular}{ll}
+\toprule
+\textbf{Variable} & \textbf{Reason} \\ \midrule
+height & Measurement not taken or Data entry error \\
+likes pinapple on pizza  & Failed to respond or intentionally left blank \\
+english skills & Missing not at random or preferred not to disclose  \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\textbf{Answer (c)} - Describe the strategies for dealing with missing values
+\begin{center}
+\begin{tabular}{ll}
+\toprule
+\textbf{Variable} & \textbf{Strategy} \\ \midrule
+height & Filled with median by grouping gender wise \\
+likes pinapple on pizza  & Crated new category as unkown \\
+english skills & Filled with median \\
+semester & Filtered out semester data entries exceeding a value of 40 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\textbf{Answer (d)} - Arithmetic mean of original dataset (with the missing values), and the one after applying the strategies
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+\textbf{Variable} & \textbf{Before Strategy} & \textbf{After Strategy} \\ \midrule
+height & 172.161446 & 172.764921 \\
+semester & 26.1560 & 10.343484 \\
+english skills & 87.009721 & 87.133983 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\end{enumerate}
+\end{document}
